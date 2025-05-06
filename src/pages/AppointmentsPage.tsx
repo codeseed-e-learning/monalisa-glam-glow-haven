@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import { Calendar } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const services = [
   { id: "haircut", name: "Haircut & Styling" },
@@ -41,6 +41,7 @@ const AppointmentsPage = () => {
     time: "",
     notes: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -51,27 +52,79 @@ const AppointmentsPage = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Appointment form submitted:", formData);
     
-    // Display success toast
-    toast({
-      title: "Appointment Booked!",
-      description: "We'll see you soon. Check your email for confirmation.",
-      duration: 5000,
-    });
+    // Basic form validation
+    if (!formData.name || !formData.email || !formData.phone || 
+        !formData.service || !formData.date || !formData.time) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        duration: 5000,
+        variant: "destructive"
+      });
+      return;
+    }
     
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      date: "",
-      time: "",
-      notes: "",
-    });
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        duration: 5000,
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Insert appointment data into Supabase
+      const { error } = await supabase.from('appointments').insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        date: formData.date,
+        time: formData.time,
+        notes: formData.notes || null
+      });
+      
+      if (error) {
+        throw error;
+      }
+      
+      // Display success toast
+      toast({
+        title: "Appointment Booked!",
+        description: "We'll see you soon. Check your email for confirmation.",
+        duration: 5000,
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        date: "",
+        time: "",
+        notes: "",
+      });
+    } catch (error) {
+      console.error("Error booking appointment:", error);
+      toast({
+        title: "Booking Failed",
+        description: "There was a problem booking your appointment. Please try again.",
+        duration: 5000,
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -234,8 +287,9 @@ const AppointmentsPage = () => {
                     <Button 
                       type="submit" 
                       className="w-full bg-rose-600 hover:bg-rose-700 text-white py-6"
+                      disabled={isSubmitting}
                     >
-                      Book Appointment
+                      {isSubmitting ? "Booking..." : "Book Appointment"}
                     </Button>
                     <p className="text-sm text-gray-500 mt-4 text-center">
                       Your appointment will be confirmed via email or phone call.
