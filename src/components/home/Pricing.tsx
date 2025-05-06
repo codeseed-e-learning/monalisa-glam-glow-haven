@@ -1,33 +1,34 @@
 
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import PricingCard from "./PricingCard";
 
 const services = [
   {
     category: "Hair",
     items: [
-      { name: "Haircut & Styling", price: 45 },
-      { name: "Color & Highlights", price: 85 },
-      { name: "Hair Treatment", price: 60 },
-      { name: "Bridal Hairstyling", price: 120 },
+      { name: "Haircut & Styling", price: 1200 },
+      { name: "Color & Highlights", price: 2500 },
+      { name: "Hair Treatment", price: 1800 },
+      { name: "Bridal Hairstyling", price: 3500 },
     ]
   },
   {
     category: "Face",
     items: [
-      { name: "Classic Facial", price: 55 },
-      { name: "Anti-Aging Treatment", price: 80 },
-      { name: "Hydrating Facial", price: 65 },
-      { name: "Microdermabrasion", price: 90 },
+      { name: "Classic Facial by Anjali", price: 1500 },
+      { name: "Anti-Aging Treatment", price: 2200 },
+      { name: "Hydrating Facial by Priya", price: 1800 },
+      { name: "Microdermabrasion", price: 2800 },
     ]
   },
   {
     category: "Body",
     items: [
-      { name: "Massage Therapy", price: 70 },
-      { name: "Body Scrub", price: 65 },
-      { name: "Waxing Services", price: 40 },
-      { name: "Manicure & Pedicure", price: 55 },
+      { name: "Massage Therapy by Deepak", price: 2000 },
+      { name: "Body Scrub by Meera", price: 1800 },
+      { name: "Waxing Services", price: 1200 },
+      { name: "Manicure & Pedicure", price: 1600 },
     ]
   }
 ];
@@ -47,30 +48,11 @@ const Pricing = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="bg-rose-600 text-white py-3 px-6">
-                <h3 className="text-xl font-semibold">{service.category} Services</h3>
-              </div>
-              <div className="p-6">
-                <ul className="space-y-4">
-                  {service.items.map((item, idx) => (
-                    <li key={idx} className="flex justify-between items-center border-b border-gray-100 pb-3">
-                      <span className="text-gray-800">{item.name}</span>
-                      <span className="text-rose-600 font-semibold">${item.price}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  onClick={() => navigate("/appointments")}
-                  className="w-full mt-6 bg-rose-600 hover:bg-rose-700 text-white"
-                >
-                  Book Now
-                </Button>
-              </div>
-            </div>
+            <PricingCard 
+              key={index}
+              category={service.category}
+              items={service.items}
+            />
           ))}
         </div>
         
