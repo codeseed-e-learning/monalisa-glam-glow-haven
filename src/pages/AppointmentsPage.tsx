@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -82,20 +83,27 @@ const AppointmentsPage = () => {
     setIsSubmitting(true);
     
     try {
+      console.log("Submitting appointment data:", formData);
+
       // Insert appointment data into Supabase
-      const { error } = await supabase.from('appointments').insert({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        date: formData.date,
-        time: formData.time,
-        notes: formData.notes || null
-      });
+      const { data, error } = await supabase
+        .from('appointments')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          date: formData.date,
+          time: formData.time,
+          notes: formData.notes || null
+        }]);
       
       if (error) {
+        console.error("Supabase error:", error);
         throw error;
       }
+      
+      console.log("Appointment saved successfully:", data);
       
       // Display success toast
       toast({
