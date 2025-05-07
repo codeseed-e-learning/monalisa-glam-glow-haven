@@ -1,30 +1,29 @@
-
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
     id: 1,
-    name: "Emma Wilson",
+    name: "Rohini Shinde",
     role: "Regular Client",
-    image: "https://randomuser.me/api/portraits/women/17.jpg",
-    quote: "The stylists at Monalisa truly understand my hair needs. I always leave feeling beautiful and confident. Their attention to detail is impeccable!",
+    image: "https://i.pinimg.com/736x/fe/fb/00/fefb00d045dc23407889fbf62c9a827e.jpg",
+    quote: "The team at Monalisa understands Indian skin perfectly! My facials and hair treatments are always spot on.",
     rating: 5
   },
   {
     id: 2,
-    name: "Sarah Johnson",
-    role: "First-time Client",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    quote: "I was nervous about trying a new salon, but the team at Monalisa made me feel right at home. My facial was relaxing and the results were amazing!",
+    name: "Sakshi Patil",
+    role: "Bridal Client",
+    image: "https://i.pinimg.com/736x/4a/4b/3e/4a4b3e1d5565a2f7b40c8804a7882f3e.jpg",
+    quote: "My wedding makeup and hair were absolutely stunning! They truly understand Indian bridal beauty standards.",
     rating: 5
   },
   {
     id: 3,
-    name: "Jessica Parker",
-    role: "Bridal Client",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
-    quote: "They did an incredible job with my bridal makeup and hair. Everything stayed perfect throughout the entire day, even through tears and dancing!",
+    name: "Riya Singh",
+    role: "First-time Client",
+    image: "https://i.pinimg.com/736x/15/42/78/154278c5c0493ec219301b3b85cebce5.jpg",
+    quote: "I loved the traditional Indian head massage and facial treatment. It was so relaxing and rejuvenating!",
     rating: 5
   }
 ];

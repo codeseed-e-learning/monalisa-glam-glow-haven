@@ -1,12 +1,23 @@
-
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-const Hero = () => {
+const Hero = (): JSX.Element => {
   const navigate = useNavigate();
 
+  // Array of image paths for the carousel
+  const images: string[] = [
+    '/images/hero/hero-Photoroom.png',
+    '/images/hero/hero2.png',
+    '/images/hero/hero2.png'
+  ];
+
   return (
-    <section className="relative bg-gradient-to-r from-rose-50 to-white py-20 md:py-32">
+    <section className="relative md:px-20 bg-gradient-to-r from-rose-50 to-white py-20 md:py-5">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-12 mb-10 md:mb-0">
@@ -35,14 +46,45 @@ const Hero = () => {
           </div>
           <div className="md:w-1/2">
             <div className="relative">
-              <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-                  alt="Beauty Services" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-lg p-4 shadow-lg">
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay]}
+                spaceBetween={0}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+                speed={800}
+                navigation={{
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                }}
+                pagination={{
+                  clickable: true,
+                  el: '.swiper-pagination',
+                  type: 'bullets',
+                }}
+                className="w-full h-[500px] rounded-2xl overflow-hidden"
+              >
+                {images.map((img, index) => (
+                  <SwiperSlide key={index}>
+                    <img 
+                      src={img} 
+                      className="w-full h-full object-cover"
+                      alt={`Hero image ${index + 1}`}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              {/* Swiper Controls */}
+              <div className="swiper-button-prev after:text-white after:text-xl !left-4" />
+              <div className="swiper-button-next after:text-white after:text-xl !right-4" />
+              <div className="swiper-pagination !bottom-4" />
+
+              {/* Review Badge */}
+              <div className="absolute -bottom-5 -left-5 bg-white rounded-lg p-4 shadow-lg z-10">
                 <div className="bg-rose-100 rounded-lg px-4 py-3">
                   <p className="text-rose-800 font-semibold">100+ 5-star reviews</p>
                 </div>
@@ -50,11 +92,11 @@ const Hero = () => {
             </div>
           </div>
         </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute top-20 right-10 h-20 w-20 rounded-full bg-rose-200 opacity-40" />
+        <div className="absolute bottom-10 left-10 h-40 w-40 rounded-full bg-rose-100 opacity-60" />
       </div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 h-20 w-20 rounded-full bg-rose-200 opacity-40"></div>
-      <div className="absolute bottom-10 left-10 h-40 w-40 rounded-full bg-rose-100 opacity-60"></div>
     </section>
   );
 };

@@ -3,37 +3,37 @@ const portfolioItems = [
   {
     id: 1,
     category: "Hair",
-    image: "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+    image: "/images/makeovers/1.jpg",
     title: "Elegant Updo"
   },
   {
     id: 2,
     category: "Makeup",
-    image: "https://images.unsplash.com/photo-1571646034647-52713772acc4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80",
+    image: "/images/makeovers/2.jpg",
     title: "Glamour Makeup"
   },
   {
     id: 3,
     category: "Nails",
-    image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80",
+    image: "/images/makeovers/3.jpg",
     title: "Artistic Nail Design"
   },
   {
     id: 4,
     category: "Facial",
-    image: "https://images.unsplash.com/photo-1596178060810-72c631f6aad5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+    image: "/images/makeovers/4.jpg",
     title: "Rejuvenating Facial"
   },
   {
     id: 5,
     category: "Hair",
-    image: "https://images.unsplash.com/photo-1565336757798-e6501c51bd5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+    image: "/images/makeovers/5.png",
     title: "Modern Color Technique"
   },
   {
     id: 6,
     category: "Bridal",
-    image: "https://images.unsplash.com/photo-1518654161653-a5ea9d522531?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
+    image: "/images/makeovers/6.jpg",
     title: "Complete Bridal Look"
   }
 ];

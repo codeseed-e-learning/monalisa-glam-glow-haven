@@ -150,165 +150,165 @@ const AppointmentsPage = () => {
       </section>
 
       {/* Appointment Form Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-md">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                <Calendar className="mr-2 h-6 w-6 text-rose-600" />
-                Schedule Your Visit
-              </h2>
-              
-              <form onSubmit={handleSubmit}>
-                <div className="space-y-6">
-                  {/* Personal Information */}
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Personal Information</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                          Full Name
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="John Doe"
-                          required
-                          className="w-full"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          Email Address
-                        </label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="john@example.com"
-                          required
-                          className="w-full"
-                        />
-                      </div>
-                      
-                      <div className="md:col-span-2">
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                          Phone Number
-                        </label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="(123) 456-7890"
-                          required
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Appointment Details */}
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Appointment Details</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
-                          Service
-                        </label>
-                        <Select 
-                          onValueChange={(value) => handleSelectChange("service", value)}
-                          value={formData.service}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a service" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {services.map((service) => (
-                              <SelectItem key={service.id} value={service.id}>
-                                {service.name}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
-                          Date
-                        </label>
-                        <Input
-                          id="date"
-                          name="date"
-                          type="date"
-                          value={formData.date}
-                          onChange={handleChange}
-                          required
-                          className="w-full"
-                        />
-                      </div>
-                      
-                      <div className="md:col-span-2">
-                        <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1">
-                          Preferred Time
-                        </label>
-                        <Select 
-                          onValueChange={(value) => handleSelectChange("time", value)}
-                          value={formData.time}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a time slot" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {timeSlots.map((time) => (
-                              <SelectItem key={time} value={time}>
-                                {time}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      
-                      <div className="md:col-span-2">
-                        <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-1">
-                          Special Requests or Notes
-                        </label>
-                        <Textarea
-                          id="notes"
-                          name="notes"
-                          value={formData.notes}
-                          onChange={handleChange}
-                          placeholder="Any specific requests or information you'd like us to know"
-                          rows={4}
-                          className="w-full"
-                        />
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-gray-50 rounded-2xl p-8 shadow-md">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Calendar className="mr-2 h-6 w-6 text-rose-600" />
+                  Schedule Your Visit
+                </h2>
+                
+                <form onSubmit={handleSubmit}>
+                  <div className="space-y-6">
+                    {/* Personal Information */}
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">Personal Information</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                            Full Name
+                          </label>
+                          <Input
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="John Doe"
+                            required
+                            className="w-full"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                            Email Address
+                          </label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="john@example.com"
+                            required
+                            className="w-full"
+                          />
+                        </div>
+                        
+                        <div className="md:col-span-2">
+                          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                            Phone Number
+                          </label>
+                          <Input
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="(123) 456-7890"
+                            required
+                            className="w-full"
+                          />
+                        </div>
                       </div>
                     </div>
+                    
+                    {/* Appointment Details */}
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">Appointment Details</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
+                            Service
+                          </label>
+                          <Select 
+                            onValueChange={(value) => handleSelectChange("service", value)}
+                            value={formData.service}
+                          >
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select a service" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {services.map((service) => (
+                                <SelectItem key={service.id} value={service.id}>
+                                  {service.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
+                            Date
+                          </label>
+                          <Input
+                            id="date"
+                            name="date"
+                            type="date"
+                            value={formData.date}
+                            onChange={handleChange}
+                            required
+                            className="w-full"
+                          />
+                        </div>
+                        
+                        <div className="md:col-span-2">
+                          <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1">
+                            Preferred Time
+                          </label>
+                          <Select 
+                            onValueChange={(value) => handleSelectChange("time", value)}
+                            value={formData.time}
+                          >
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select a time slot" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {timeSlots.map((time) => (
+                                <SelectItem key={time} value={time}>
+                                  {time}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        
+                        <div className="md:col-span-2">
+                          <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-1">
+                            Special Requests or Notes
+                          </label>
+                          <Textarea
+                            id="notes"
+                            name="notes"
+                            value={formData.notes}
+                            onChange={handleChange}
+                            placeholder="Any specific requests or information you'd like us to know"
+                            rows={4}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-4">
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-rose-600 hover:bg-rose-700 text-white py-6"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Booking..." : "Book Appointment"}
+                      </Button>
+                      <p className="text-sm text-gray-500 mt-4 text-center">
+                        Your appointment will be confirmed via email or phone call.
+                      </p>
+                    </div>
                   </div>
-                  
-                  <div className="pt-4">
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-rose-600 hover:bg-rose-700 text-white py-6"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? "Booking..." : "Book Appointment"}
-                    </Button>
-                    <p className="text-sm text-gray-500 mt-4 text-center">
-                      Your appointment will be confirmed via email or phone call.
-                    </p>
-                  </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Policy Section */}
       <section className="py-12 bg-gray-50">

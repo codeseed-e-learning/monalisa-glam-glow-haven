@@ -35,10 +35,10 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <address className="not-italic text-gray-600">
-              <p>123 Beauty Street</p>
-              <p>New York, NY 10001</p>
-              <p className="mt-3">Email: info@monalisa.com</p>
-              <p>Phone: (123) 456-7890</p>
+              <p>Ganesh nagar , Near Balaji Lodge </p>
+              <p>Pandharpur - 413304</p>
+              <p className="mt-3">Email: shrutilokhande08@gmail.com</p>
+              <p>Phone: 987654321</p>
             </address>
           </div>
         </div>
